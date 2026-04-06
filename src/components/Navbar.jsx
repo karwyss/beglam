@@ -1,15 +1,6 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const navItems = [
     { label: 'O nas', href: '#about' },
     { label: 'Filozofia', href: '#philosophy' },
@@ -23,11 +14,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-cream/98 backdrop-blur-md shadow-sm py-3' 
-          : 'bg-transparent py-5'
-      }`}
+      className="fixed top-0 left-0 right-0 z-40 bg-white backdrop-blur-md shadow-sm py-3"
     >
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
         <a href="#" className="font-accent text-xl md:text-2xl tracking-[0.25em] text-black">
